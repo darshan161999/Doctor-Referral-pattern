@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Timeline Viewer</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --light: #ecf0f1;
+            --dark: #34495e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .login-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        button {
+            padding: 10px 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 250px;
+        }
+        
+        .timeline-container {
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .patient-info {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-event {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-event::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .event-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .event-details {
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            display: none;
+        }
+        
+        .event-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-content .date {
+            color: #777;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+        
+        .event-content .description {
+            margin-bottom: 1rem;
+        }
+        
+        .toggle-details {
+            background-color: var(--light);
+            color: var(--dark);
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .toggle-details:hover {
+            background-color: #dfe6e9;
+        }
+        
+        .detail-section {
+            margin-top: 15px;
+        }
+        
+        .detail-section h4 {
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        .detail-item {
+            background-color: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+        
+        .detail-item span {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .badge-emer {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .badge-amb {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .badge-imp {
+            background-color: var(--warning);
+            color: white;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: var(--primary);
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error-message {
+            color: var(--danger);
+            background-color: #fadbd8;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .visualization {
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-event {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-event::after {
+                left: 15px;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Patient Timeline Viewer
+            </h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="login-section">
+            <h2>Access Patient Timeline</h2>
+            <p>First, authenticate with MeldRx to access patient data.</p>
+            <div style="margin-top: 1rem;">
+                <button id="loginBtn">Login to MeldRx</button>
+                <div id="loginStatus" style="margin-top: 0.5rem; font-style: italic; color: #777;"></div>
+            </div>
+            
+            <div id="patientSearch" style="margin-top: 1.5rem; display: none;">
+                <h3>Search Patient Timeline</h3>
+                <div style="display: flex; gap: 10px; margin-top: 0.5rem;">
+                    <input type="text" id="patientId" placeholder="Enter Patient ID">
+                    <button id="searchBtn">View Timeline</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading patient timeline...</p>
+        </div>
+        
+        <div id="errorMessage" class="error-message"></div>
+        
+        <div id="timelineContainer" class="timeline-container">
+            <div id="patientInfo" class="patient-info">
+                <h2 id="patientName">Patient Name</h2>
+                <p>Patient ID: <span id="patientIdDisplay"></span></p>
+            </div>
+            
+            <div id="visualization" class="visualization">
+                <h3>Timeline Visualization</h3>
+                <div id="visualizationContent">
+                    <p>Timeline visualization will appear here.</p>
+                </div>
+            </div>
+            
+            <h2>Healthcare Journey</h2>
+            <div id="timeline" class="timeline"></div>
+        </div>
+    </div>
+    
+    <script>
+        // DOM elements
+        const loginBtn = document.getElementById('loginBtn');
+        const loginStatus = document.getElementById('loginStatus');
+        const patientSearch = document.getElementById('patientSearch');
+        const searchBtn = document.getElementById('searchBtn');
+        const patientIdInput = document.getElementById('patientId');
+        const loadingDiv = document.getElementById('loading');
+        const errorMessageDiv = document.getElementById('errorMessage');
+        const timelineContainer = document.getElementById('timelineContainer');
+        const patientNameElem = document.getElementById('patientName');
+        const patientIdDisplay = document.getElementById('patientIdDisplay');
+        const timelineElem = document.getElementById('timeline');
+        const visualizationContent = document.getElementById('visualizationContent');
+        
+        // Base API URL
+        const API_BASE = 'http://127.0.0.1:8080';
+        
+        // Login to MeldRx
+        loginBtn.addEventListener('click', async () => {
+            try {
+                loginStatus.textContent = 'Fetching login URL...';
+                
+                // Get the login URL from the API
+                const response = await fetch(`${API_BASE}/login`);
+                const data = await response.json();
+                
+                if (data.auth_url) {
+                    // Open MeldRx login in a new window
+                    loginStatus.textContent = 'Redirecting to MeldRx login...';
+                    const loginWindow = window.open(data.auth_url, 'MeldRxLogin', 'width=600,height=700');
+                    
+                    // Check if the login window was closed
+                    const checkWindowClosed = setInterval(() => {
+                        if (loginWindow.closed) {
+                            clearInterval(checkWindowClosed);
+                            checkLoginStatus();
+                        }
+                    }, 1000);
+                } else {
+                    loginStatus.textContent = 'Failed to get login URL.';
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                loginStatus.textContent = 'Error connecting to the server.';
+            }
+        });
+        
+        // Check if user is logged in
+        async function checkLoginStatus() {
+            try {
+                loginStatus.textContent = 'Checking login status...';
+                
+                // Try to access a protected endpoint to check if we have a valid token
+                // We're using a small fetch with catch here to avoid showing errors
+                const testRes = await fetch(`${API_BASE}/patient_timeline/test`)
+                    .then(res => {
+                        if (res.status === 401) {
+                            return { loggedIn: false };
+                        }
+                        return res.json().then(data => ({ loggedIn: true, data }));
+                    })
+                    .catch(() => ({ loggedIn: false }));
+                
+                if (testRes.loggedIn) {
+                    loginStatus.textContent = 'Logged in successfully';
+                    loginBtn.style.display = 'none';
+                    patientSearch.style.display = 'block';
+                } else {
+                    loginStatus.textContent = 'Not logged in. Try again.';
+                }
+            } catch (error) {
+                console.error('Login check error:', error);
+                loginStatus.textContent = 'Error checking login status.';
+            }
+        }
+        
+        // Search for patient timeline
+        searchBtn.addEventListener('click', async () => {
+            const patientId = patientIdInput.value.trim();
+            
+            if (!patientId) {
+                showError('Please enter a patient ID');
+                return;
+            }
+            
+            showLoading(true);
+            hideError();
+            
+            try {
+                // Fetch patient timeline with visualization
+                const response = await fetch(`${API_BASE}/patient_timeline_visual/${patientId}`);
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.detail || 'Failed to fetch patient timeline');
+                }
+                
+                const data = await response.json();
+                renderTimeline(data);
+            } catch (error) {
+                console.error('Error fetching timeline:', error);
+                showError(error.message);
+            } finally {
+                showLoading(false);
+            }
+        });
+        
+        // Format date string for display
+        function formatDate(dateString) {
+            if (!dateString || dateString === 'No Start Date' || dateString === 'Unknown') {
+                return 'Unknown date';
+            }
+            
+            try {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } catch (e) {
+                return dateString;
+            }
+        }
+        
+        // Render the patient timeline
+        function renderTimeline(data) {
+            // Update patient info
+            patientNameElem.textContent = data.name || 'Unnamed Patient';
+            patientIdDisplay.textContent = data.patientId;
+            
+            // Render the visualization if available
+            if (data.visualization && data.visualization !== 'No visualization generated') {
+                visualizationContent.innerHTML = `
+                    <img src="data:image/png;base64,${data.visualization}" alt="Patient Timeline Visualization" style="max-width: 100%;">
+                `;
+            } else {
+                visualizationContent.innerHTML = '<p>No timeline visualization available for this patient.</p>';
+            }
+            
+            // Clear existing timeline
+            timelineElem.innerHTML = '';
+            
+            // Check if timeline data exists
+            if (!data.timeline || data.timeline.length === 0) {
+                timelineElem.innerHTML = '<p>No timeline events found for this patient.</p>';
+                timelineContainer.style.display = 'block';
+                return;
+            }
+            
+            // Create timeline events
+            data.timeline.forEach((event, index) => {
+                // Create timeline event element
+                const eventElem = document.createElement('div');
+                eventElem.className = `timeline-event ${index % 2 === 0 ? 'left' : 'right'}`;
+                
+                // Format the date
+                const formattedDate = formatDate(event.eventDate);
+                
+                // Get class code badge
+                const classCodeBadge = getClassCodeBadge(event.classCode);
+                
+                // Create the event content
+                const eventContent = document.createElement('div');
+                eventContent.className = 'event-content';
+                
+                // Add event metadata
+                eventContent.innerHTML = `
+                    <h3>${event.eventDescription}</h3>
+                    <div class="date">${formattedDate} ${classCodeBadge}</div>
+                    <div class="description">
+                        ${getEventDescription(event)}
+                    </div>
+                    <button class="toggle-details">Show Details</button>
+                `;
+                
+                // Create event details container
+                const eventDetails = document.createElement('div');
+                eventDetails.className = 'event-details';
+                
+                // Add subsequent activities
+                if (event.subsequentActivities) {
+                    // Add encounters
+                    if (event.subsequentActivities.encounters && event.subsequentActivities.encounters.length > 0) {
+                        eventDetails.appendChild(createDetailSection('Encounters', event.subsequentActivities.encounters, renderEncounter));
+                    }
+                    
+                    // Add conditions
+                    if (event.subsequentActivities.conditions && event.subsequentActivities.conditions.length > 0) {
+                        eventDetails.appendChild(createDetailSection('Conditions', event.subsequentActivities.conditions, renderCondition));
+                    }
+                    
+                    // Add procedures
+                    if (event.subsequentActivities.procedures && event.subsequentActivities.procedures.length > 0) {
+                        eventDetails.appendChild(createDetailSection('Procedures', event.subsequentActivities.procedures, renderProcedure));
+                    }
+                    
+                    // Add observations
+                    if (event.subsequentActivities.observations && event.subsequentActivities.observations.length > 0) {
+                        eventDetails.appendChild(createDetailSection('Observations', event.subsequentActivities.observations, renderObservation));
+                    }
+                }
+                
+                // Add toggle functionality
+                const toggleBtn = eventContent.querySelector('.toggle-details');
+                toggleBtn.addEventListener('click', () => {
+                    const isVisible = eventDetails.style.display === 'block';
+                    eventDetails.style.display = isVisible ? 'none' : 'block';
+                    toggleBtn.textContent = isVisible ? 'Show Details' : 'Hide Details';
+                });
+                
+                // Append details to content
+                eventContent.appendChild(eventDetails);
+                
+                // Append content to event
+                eventElem.appendChild(eventContent);
+                
+                // Add to timeline
+                timelineElem.appendChild(eventElem);
+            });
+            
+            // Show the timeline container
+            timelineContainer.style.display = 'block';
+        }
+        
+        // Helper function to create detail sections
+        function createDetailSection(title, items, renderFunction) {
+            const section = document.createElement('div');
+            section.className = 'detail-section';
+            
+            const heading = document.createElement('h4');
+            heading.textContent = title;
+            section.appendChild(heading);
+            
+            items.forEach(item => {
+                const itemElem = document.createElement('div');
+                itemElem.className = 'detail-item';
+                itemElem.innerHTML = renderFunction(item);
+                section.appendChild(itemElem);
+            });
+            
+            return section;
+        }
+        
+        // Render functions for different data types
+        function renderEncounter(encounter) {
+            return `
+                <div><span>Date:</span> ${formatDate(encounter.startDate)}</div>
+                <div><span>Type:</span> ${encounter.type}</div>
+                <div><span>Reason:</span> ${encounter.reasonCode}</div>
+                ${encounter.practitioners && encounter.practitioners.length > 0 
+                  ? `<div><span>Providers:</span> ${encounter.practitioners.map(p => p.name).join(', ')}</div>` 
+                  : ''}
+            `;
+        }
+        
+        function renderCondition(condition) {
+            return `
+                <div><span>Condition:</span> ${condition.code}</div>
+                <div><span>Category:</span> ${condition.category}</div>
+                <div><span>Onset:</span> ${formatDate(condition.onsetDateTime)}</div>
+            `;
+        }
+        
+        function renderProcedure(procedure) {
+            return `
+                <div><span>Procedure:</span> ${procedure.code}</div>
+                <div><span>Performed:</span> ${formatDate(procedure.performedDateTime)}</div>
+            `;
+        }
+        
+        function renderObservation(observation) {
+            return `
+                <div><span>Observation:</span> ${observation.code}</div>
+                <div><span>Value:</span> ${observation.value} ${observation.unit}</div>
+                <div><span>Date:</span> ${formatDate(observation.effectiveDateTime)}</div>
+            `;
+        }
+        
+        // Get class code badge
+        function getClassCodeBadge(classCode) {
+            if (!classCode) return '';
+            
+            const code = classCode.toUpperCase();
+            let badgeClass = '';
+            
+            switch (code) {
+                case 'EMER':
+                    badgeClass = 'badge-emer';
+                    break;
+                case 'AMB':
+                    badgeClass = 'badge-amb';
+                    break;
+                case 'IMP':
+                    badgeClass = 'badge-imp';
+                    break;
+                default:
+                    return '';
+            }
+            
+            return `<span class="badge ${badgeClass}">${code}</span>`;
+        }
+        
+        // Get brief event description
+        function getEventDescription(event) {
+            // Determine the type of event
+            const hasConditions = event.subsequentActivities && 
+                                 event.subsequentActivities.conditions && 
+                                 event.subsequentActivities.conditions.length > 0;
+            
+            const hasProcedures = event.subsequentActivities && 
+                                 event.subsequentActivities.procedures && 
+                                 event.subsequentActivities.procedures.length > 0;
+            
+            let description = '';
+            
+            if (hasConditions) {
+                const conditions = event.subsequentActivities.conditions
+                    .slice(0, 2)
+                    .map(c => c.code)
+                    .join(', ');
+                
+                description += `Conditions: ${conditions}`;
+                
+                if (event.subsequentActivities.conditions.length > 2) {
+                    description += ` and ${event.subsequentActivities.conditions.length - 2} more`;
+                }
+            }
+            
+            if (hasProcedures) {
+                if (description) description += '<br>';
+                
+                const procedures = event.subsequentActivities.procedures
+                    .slice(0, 2)
+                    .map(p => p.code)
+                    .join(', ');
+                
+                description += `Procedures: ${procedures}`;
+                
+                if (event.subsequentActivities.procedures.length > 2) {
+                    description += ` and ${event.subsequentActivities.procedures.length - 2} more`;
+                }
+            }
+            
+            return description || 'No additional details available';
+        }
+        
+        // Toggle loading state
+        function showLoading(show) {
+            loadingDiv.style.display = show ? 'block' : 'none';
+            timelineContainer.style.display = show ? 'none' : timelineContainer.style.display;
+        }
+        
+        // Show error message
+        function showError(message) {
+            errorMessageDiv.textContent = message;
+            errorMessageDiv.style.display = 'block';
+        }
+        
+        // Hide error message
+        function hideError() {
+            errorMessageDiv.style.display = 'none';
+        }
+        
+        // Check login status on page load (in case token is still valid)
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+    </script>
+</body>
+</html>

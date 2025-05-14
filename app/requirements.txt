@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+requests 
+python-dotenv 
+google-auth 
+google-cloud-storage 
+google-cloud-aiplatform 
+google-cloud-logging

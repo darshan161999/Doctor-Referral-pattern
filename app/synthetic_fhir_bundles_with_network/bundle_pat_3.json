@@ -1,0 +1,1009 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a75cdbfd-2513-4c48-81a0-eab7386feb9d",
+        "name": [
+          {
+            "use": "official",
+            "family": "\"Emily",
+            "given": [
+              "Johnson\""
+            ],
+            "prefix": [
+              "Mr."
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1975-08-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4e97a618-9329-44e3-9fde-104234ba1539",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "4e97a618-9329-44e3-9fde-104234ba1539",
+        "name": [
+          {
+            "family": "Dr.",
+            "given": [
+              "Sophia Patel"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f7b9f654-8025-437a-b099-c0fa332f1177",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "f7b9f654-8025-437a-b099-c0fa332f1177",
+        "practitioner": {
+          "reference": "urn:uuid:4e97a618-9329-44e3-9fde-104234ba1539"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "408443003"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:443a696f-2c72-4e0c-b209-7a9bb59ef993",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "443a696f-2c72-4e0c-b209-7a9bb59ef993",
+        "name": [
+          {
+            "family": "\"Dr.",
+            "given": [
+              "Sophia Patel\""
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:61747b34-fe12-4c61-9c55-c4d37c274fed",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "61747b34-fe12-4c61-9c55-c4d37c274fed",
+        "practitioner": {
+          "reference": "urn:uuid:443a696f-2c72-4e0c-b209-7a9bb59ef993"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "419772000"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ccb504a5-ecdd-416a-aec3-e03e03f90b43",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "ccb504a5-ecdd-416a-aec3-e03e03f90b43",
+        "name": [
+          {
+            "family": "\"Dr.",
+            "given": [
+              "Emily Patel\""
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:379efadd-3a30-4386-bc46-4597e4ed1ddf",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "379efadd-3a30-4386-bc46-4597e4ed1ddf",
+        "practitioner": {
+          "reference": "urn:uuid:ccb504a5-ecdd-416a-aec3-e03e03f90b43"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "309369003"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3de9a6d2-35ff-426c-aacf-e2eaf211338c",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "3de9a6d2-35ff-426c-aacf-e2eaf211338c",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d",
+          "display": "Mr. Johnson\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:4e97a618-9329-44e3-9fde-104234ba1539",
+              "display": "Dr. Dr. Sophia Patel"
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-02-21T00:00:00Z",
+          "end": "2023-02-21T02:11:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Management of Fracture of forearm (disorder)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:10b5d7a1-19a6-4b2c-924e-620a33f5f434",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "10b5d7a1-19a6-4b2c-924e-620a33f5f434",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "284196006",
+              "display": "Fracture of forearm (disorder)"
+            }
+          ],
+          "text": "Fracture of forearm (disorder)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3de9a6d2-35ff-426c-aacf-e2eaf211338c"
+        },
+        "onsetDateTime": "2023-02-21T00:00:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aaa5c2e2-1313-4736-93c5-bb6497925b14",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "aaa5c2e2-1313-4736-93c5-bb6497925b14",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3de9a6d2-35ff-426c-aacf-e2eaf211338c"
+        },
+        "performedDateTime": "2023-02-21T00:00:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4b1436cb-1527-46c8-8583-733aee48a888",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "4b1436cb-1527-46c8-8583-733aee48a888",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3de9a6d2-35ff-426c-aacf-e2eaf211338c"
+        },
+        "effectiveDateTime": "2023-02-21T00:00:00Z",
+        "valueQuantity": {
+          "value": 97.23511783523178,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:90e742ef-b932-43f7-b2a9-d6ebe71f1bc2",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "90e742ef-b932-43f7-b2a9-d6ebe71f1bc2",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d",
+          "display": "Mr. Johnson\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:4e97a618-9329-44e3-9fde-104234ba1539",
+              "display": "Dr. Dr. Sophia Patel"
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-05-19T02:11:00Z",
+          "end": "2023-05-19T03:54:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Management of Osteoarthritis of hip"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4c9f077a-8fa2-4b3d-8913-3124d30b59b5",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "4c9f077a-8fa2-4b3d-8913-3124d30b59b5",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "230690007",
+              "display": "Osteoarthritis of hip"
+            }
+          ],
+          "text": "Osteoarthritis of hip"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:90e742ef-b932-43f7-b2a9-d6ebe71f1bc2"
+        },
+        "onsetDateTime": "2023-05-19T02:11:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:65439f1c-95dc-4033-890d-d102a5c9746d",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "65439f1c-95dc-4033-890d-d102a5c9746d",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:90e742ef-b932-43f7-b2a9-d6ebe71f1bc2"
+        },
+        "performedDateTime": "2023-05-19T02:11:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bde9c4ae-1503-4eaa-882e-21e6309a7f1a",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bde9c4ae-1503-4eaa-882e-21e6309a7f1a",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:90e742ef-b932-43f7-b2a9-d6ebe71f1bc2"
+        },
+        "effectiveDateTime": "2023-05-19T02:11:00Z",
+        "valueQuantity": {
+          "value": 106.74061844928676,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b8e44121-4002-46b2-8b92-bfa2b81e95b2",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "b8e44121-4002-46b2-8b92-bfa2b81e95b2",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "EMER"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d",
+          "display": "Mr. Johnson\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:4e97a618-9329-44e3-9fde-104234ba1539",
+              "display": "Dr. Dr. Sophia Patel"
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-07-02T03:54:00Z",
+          "end": "2023-07-02T06:59:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Management of Fracture of forearm"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fc6f05cc-fd8b-436c-9e9d-365ee4ea3e11",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "fc6f05cc-fd8b-436c-9e9d-365ee4ea3e11",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Fracture of forearm"
+            }
+          ],
+          "text": "Fracture of forearm"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8e44121-4002-46b2-8b92-bfa2b81e95b2"
+        },
+        "onsetDateTime": "2023-07-02T03:54:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9851354-e783-47fa-8779-9ea0f6c8399c",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "e9851354-e783-47fa-8779-9ea0f6c8399c",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8e44121-4002-46b2-8b92-bfa2b81e95b2"
+        },
+        "performedDateTime": "2023-07-02T03:54:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f012903c-ba99-44c1-987b-5a0eec6ef90d",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "f012903c-ba99-44c1-987b-5a0eec6ef90d",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8e44121-4002-46b2-8b92-bfa2b81e95b2"
+        },
+        "effectiveDateTime": "2023-07-02T03:54:00Z",
+        "valueQuantity": {
+          "value": 110.14686134951063,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b10412bf-bee6-4d62-80c9-431b24ce1775",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "b10412bf-bee6-4d62-80c9-431b24ce1775",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d",
+          "display": "Mr. Johnson\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:443a696f-2c72-4e0c-b209-7a9bb59ef993",
+              "display": "Dr. \"Dr. Sophia Patel\""
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-08-28T06:59:00Z",
+          "end": "2023-08-28T08:27:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Management of Acute myocardial infarction (disorder)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7079ef69-4afa-4b99-af38-fa37f7fa2ed8",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "7079ef69-4afa-4b99-af38-fa37f7fa2ed8",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "40055000",
+              "display": "Acute myocardial infarction (disorder)"
+            }
+          ],
+          "text": "Acute myocardial infarction (disorder)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b10412bf-bee6-4d62-80c9-431b24ce1775"
+        },
+        "onsetDateTime": "2023-08-28T06:59:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:76fd72bc-f276-4f29-babc-d87d18434ae6",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "76fd72bc-f276-4f29-babc-d87d18434ae6",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b10412bf-bee6-4d62-80c9-431b24ce1775"
+        },
+        "performedDateTime": "2023-08-28T06:59:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c71e43fa-75e5-4909-9500-0294005a5bc9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "c71e43fa-75e5-4909-9500-0294005a5bc9",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b10412bf-bee6-4d62-80c9-431b24ce1775"
+        },
+        "effectiveDateTime": "2023-08-28T06:59:00Z",
+        "valueQuantity": {
+          "value": 117.69646233341297,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bd0aeaec-aca6-43a2-aef2-dbc7e7c1f1a2",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "bd0aeaec-aca6-43a2-aef2-dbc7e7c1f1a2",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d",
+          "display": "Mr. Johnson\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:443a696f-2c72-4e0c-b209-7a9bb59ef993",
+              "display": "Dr. \"Dr. Sophia Patel\""
+            }
+          },
+          {
+            "individual": {
+              "reference": "urn:uuid:ccb504a5-ecdd-416a-aec3-e03e03f90b43",
+              "display": "Dr. \"Dr. Emily Patel\""
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-10-19T08:27:00Z",
+          "end": "2023-10-19T12:14:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Management of Diabetes mellitus (disorder)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c1d2bf31-c58e-4964-b3a9-ad00d174b944",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "c1d2bf31-c58e-4964-b3a9-ad00d174b944",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "73211009",
+              "display": "Diabetes mellitus (disorder)"
+            }
+          ],
+          "text": "Diabetes mellitus (disorder)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bd0aeaec-aca6-43a2-aef2-dbc7e7c1f1a2"
+        },
+        "onsetDateTime": "2023-10-19T08:27:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9455be6c-19c1-4a6b-938a-31330fc872ae",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "9455be6c-19c1-4a6b-938a-31330fc872ae",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bd0aeaec-aca6-43a2-aef2-dbc7e7c1f1a2"
+        },
+        "performedDateTime": "2023-10-19T08:27:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:acaba192-a323-45b2-ae99-0a20338280a2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "acaba192-a323-45b2-ae99-0a20338280a2",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bd0aeaec-aca6-43a2-aef2-dbc7e7c1f1a2"
+        },
+        "effectiveDateTime": "2023-10-19T08:27:00Z",
+        "valueQuantity": {
+          "value": 112.00368635629181,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:06f582f3-da54-49c2-9e87-a87eb54d1d79",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "06f582f3-da54-49c2-9e87-a87eb54d1d79",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d",
+          "display": "Mr. Johnson\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:443a696f-2c72-4e0c-b209-7a9bb59ef993",
+              "display": "Dr. \"Dr. Sophia Patel\""
+            }
+          },
+          {
+            "individual": {
+              "reference": "urn:uuid:ccb504a5-ecdd-416a-aec3-e03e03f90b43",
+              "display": "Dr. \"Dr. Emily Patel\""
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-12-06T12:14:00Z",
+          "end": "2023-12-06T12:57:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Management of Rheumatoid arthritis (disorder)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b575cd8d-ba26-4dec-b704-45f4ac5ed032",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "b575cd8d-ba26-4dec-b704-45f4ac5ed032",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "195967001",
+              "display": "Rheumatoid arthritis (disorder)"
+            }
+          ],
+          "text": "Rheumatoid arthritis (disorder)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:06f582f3-da54-49c2-9e87-a87eb54d1d79"
+        },
+        "onsetDateTime": "2023-12-06T12:14:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:83676041-8f90-409a-879c-9c596ee7d2e8",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "83676041-8f90-409a-879c-9c596ee7d2e8",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:06f582f3-da54-49c2-9e87-a87eb54d1d79"
+        },
+        "performedDateTime": "2023-12-06T12:14:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3adab899-5b3f-4d07-8bcb-3d6f5615a3b1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "3adab899-5b3f-4d07-8bcb-3d6f5615a3b1",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:a75cdbfd-2513-4c48-81a0-eab7386feb9d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:06f582f3-da54-49c2-9e87-a87eb54d1d79"
+        },
+        "effectiveDateTime": "2023-12-06T12:14:00Z",
+        "valueQuantity": {
+          "value": 103.14525317557451,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    }
+  ]
+}

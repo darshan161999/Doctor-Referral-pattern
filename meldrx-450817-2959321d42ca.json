@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "meldrx-450817",
+  "private_key_id": "2959321d42ca3553391f5dbd37698e814f055004",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCOS8VOTnpFXOMj\n/NiPP6LNje9T0BeKk82P2GHTdWCqHe8VzEaVwac1blLQOUeLrjC7lC6mVXkfhuu0\npSiMqQB/JOgFn7FV4f62LNh+P6w3kj7Mjyv44i4/0DIiVc3wNyNE6+yol5+yTcsi\nFdyHVWtoeXB817RhO/R5GPUzTdr4X52iWTuWYWO4xgUqGe2kGNLPHSImLTrwnfea\nmVtaKvKe4xRv4b8S0yEwxWl8O8lXWKVFnzMgUQRYM5lD7HJVREZLs7dFlQwtA7Yb\n7XahDz2Xd780hCJqMg4PCelKlvliy1GvCvjMQh5fT3gvfuyqSoftOk1FZNkLn1hJ\n2MC+gOr7AgMBAAECggEALBcRNy681xItdSCqr1Qd60gf0F3pdXBPoNMAmMdFYOCu\njJgDhPKAj180PL2KzB54jh6fh71zLtAc55fHJTJWa47xb5CoH37LcAIcQJ4VDBD9\n8V8pVlAq2W32osnoahaDkJ7zcNeuTU6qctDISIywn6oFL0Gc7AXqPb18eF2WzB9K\nDW19cT0kxFqMmleOgpdm2zBlUP0bmbtT0wuh8/UL3CEVQpiMFF3wgRfKcR33+mg8\nn9F+9coezDtws/8gkidwu4viTudrWGak6RS2ICb5S3HYaRaOlolwK+L6msnHOUef\nlwENTq46DZPI+ZHZqSczZpY3rgEV7A9dUqRmuSIVQQKBgQDA44XmDt4RpVw6Wruc\n3SPEwiFb0E7mU7hlW4VqjhXCbPFzBlWzaikOnQulC7/+hc5+j0ONYlTs7LtVQcb5\n4VKSlhfSyvaZbUEAAYMa9HRwWDf4yFBvsuTaGiJ9kuF9PT1LBsiVtHqZqAa2gFW0\nQTYbNoBQ9O+wZz1b520RusdZOwKBgQC82pD1/5kUcpC90fHKsHr9fZP1KjMQ5cCb\ngFtAQbkfg5rqgRe6B+iSiSHZQR71/FsfA+NoFCN69wfGp0j1MzBttdc40JnLDkAr\nmIHUURWZVVJlrDAsGxCubxZTEWUqt/jbkMvZA5OYKHn10+l72B2taIMuM/GrtpO6\nPIpqF72ZQQKBgGIKg4GG5wrzEOi8O4YkxMx6m/gN7jyWKzChjzO02oyDUUpU2vSh\nrhK2cjfGvCTDoEylxwEzDNWMEj/oehmClLTbQ2qqLSOY66P0IM5vmEuOG40BTBkq\nRbYx+Hv5T1GX8fKTlRq6rGIzjI3wtx8y0iyMzDXZ+YahQwfWnpKXbEIHAoGBALIg\n2fAeCM5fjSRtvMl4klk8tGzfQ9FhU72YYPmHxEv0Pw+HedCvGu/0Rqf7o29TesMT\nUNBfhmO6U2xNZyRYBwrEJF9jalw7cc1tCLAxVtUMxC5ALiO7140gHId3ddvIMQMw\nXQWxOOqg6wAyxBxa6Qsh8/GFbyKOkGJuLgQJpnzBAoGBAJVe5IW2UoU+uNcXR1/1\nLcm9UksBXuTlQzLWx7z0OQHqxoIW6YVUdzN7n+dkBognCEwypXruuKVfJawIIQSi\nXVDYVJDImEythRqFx5UNVaqh8y5oxVVR7rP5HwSD1zBQTaKL7jGdHO4sYgVW+vAr\n1tGxJh61S6QIQQJx2Y4EJfzf\n-----END PRIVATE KEY-----\n",
+  "client_email": "healthcare-service-account@meldrx-450817.iam.gserviceaccount.com",
+  "client_id": "102800950147299924922",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/healthcare-service-account%40meldrx-450817.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

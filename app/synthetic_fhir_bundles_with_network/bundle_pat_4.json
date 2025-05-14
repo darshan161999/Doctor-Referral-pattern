@@ -1,0 +1,887 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed",
+        "name": [
+          {
+            "use": "official",
+            "family": "\"Emily",
+            "given": [
+              "Patel\""
+            ],
+            "prefix": [
+              "Mr."
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1945-01-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:372d2034-9a01-4d9a-adb2-1e33628653e8",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "372d2034-9a01-4d9a-adb2-1e33628653e8",
+        "name": [
+          {
+            "family": "\"Dr.",
+            "given": [
+              "Sarah Patel\""
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fb548b5d-4a21-493a-91af-ade4dab4d92d",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "fb548b5d-4a21-493a-91af-ade4dab4d92d",
+        "practitioner": {
+          "reference": "urn:uuid:372d2034-9a01-4d9a-adb2-1e33628653e8"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "408443003"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:75995064-323c-4d10-abe2-4f71078d9fb7",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "75995064-323c-4d10-abe2-4f71078d9fb7",
+        "name": [
+          {
+            "family": "Dr.",
+            "given": [
+              "Olivia Richardson"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:790a1970-1f87-4fe9-a1ab-6bb24cd21b2f",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "790a1970-1f87-4fe9-a1ab-6bb24cd21b2f",
+        "practitioner": {
+          "reference": "urn:uuid:75995064-323c-4d10-abe2-4f71078d9fb7"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "419772000"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e95fbaaa-62b6-4d88-b8e9-9a70bf9c4084",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "e95fbaaa-62b6-4d88-b8e9-9a70bf9c4084",
+        "name": [
+          {
+            "family": "Dr.",
+            "given": [
+              "Sarah Patel"
+            ],
+            "prefix": [
+              "Dr."
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e7604884-4d0a-4416-9263-89af888eab04",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "e7604884-4d0a-4416-9263-89af888eab04",
+        "practitioner": {
+          "reference": "urn:uuid:e95fbaaa-62b6-4d88-b8e9-9a70bf9c4084"
+        },
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "309369003"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:da130fd5-6c40-465d-86cc-7140044c36e6",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "da130fd5-6c40-465d-86cc-7140044c36e6",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "EMER"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed",
+          "display": "Mr. Patel\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:372d2034-9a01-4d9a-adb2-1e33628653e8",
+              "display": "Dr. \"Dr. Sarah Patel\""
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-02-28T00:00:00Z",
+          "end": "2023-02-28T01:42:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Management of Fracture of tibia (disorder)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:439cd751-f71f-46e3-a17f-bab986952e8a",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "439cd751-f71f-46e3-a17f-bab986952e8a",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "10509002",
+              "display": "Fracture of tibia (disorder)"
+            }
+          ],
+          "text": "Fracture of tibia (disorder)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:da130fd5-6c40-465d-86cc-7140044c36e6"
+        },
+        "onsetDateTime": "2023-02-28T00:00:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ceca0b20-d2d8-42fa-b490-d4475d1de764",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "ceca0b20-d2d8-42fa-b490-d4475d1de764",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:da130fd5-6c40-465d-86cc-7140044c36e6"
+        },
+        "performedDateTime": "2023-02-28T00:00:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:afccec2f-978b-4f12-888d-24df824e4a5b",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "afccec2f-978b-4f12-888d-24df824e4a5b",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:da130fd5-6c40-465d-86cc-7140044c36e6"
+        },
+        "effectiveDateTime": "2023-02-28T00:00:00Z",
+        "valueQuantity": {
+          "value": 104.0031141197708,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:58a57696-28bc-40fc-a8ce-eb5c82231bdf",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "58a57696-28bc-40fc-a8ce-eb5c82231bdf",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed",
+          "display": "Mr. Patel\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:e95fbaaa-62b6-4d88-b8e9-9a70bf9c4084",
+              "display": "Dr. Dr. Sarah Patel"
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-04-19T01:42:00Z",
+          "end": "2023-04-19T04:30:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Referral from Dr. \"Dr. Sarah Patel\" for Fracture of lower limb"
+          }
+        ],
+        "incomingReferral": [
+          {
+            "referrer": {
+              "reference": "urn:uuid:372d2034-9a01-4d9a-adb2-1e33628653e8"
+            },
+            "date": "2023-02-28"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:baf3b6e0-97b9-4af3-b087-a52742377c56",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "baf3b6e0-97b9-4af3-b087-a52742377c56",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Fracture of lower limb"
+            }
+          ],
+          "text": "Fracture of lower limb"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:58a57696-28bc-40fc-a8ce-eb5c82231bdf"
+        },
+        "onsetDateTime": "2023-04-19T01:42:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:12245bae-4946-44b1-96ed-cb35f4a84772",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "12245bae-4946-44b1-96ed-cb35f4a84772",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:58a57696-28bc-40fc-a8ce-eb5c82231bdf"
+        },
+        "performedDateTime": "2023-04-19T01:42:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eef51cac-d286-406c-a21d-9bcbb51fd5f2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "eef51cac-d286-406c-a21d-9bcbb51fd5f2",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:58a57696-28bc-40fc-a8ce-eb5c82231bdf"
+        },
+        "effectiveDateTime": "2023-04-19T01:42:00Z",
+        "valueQuantity": {
+          "value": 101.989250264701,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:26519c44-715e-4fef-98b1-d5142a5634aa",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "26519c44-715e-4fef-98b1-d5142a5634aa",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed",
+          "display": "Mr. Patel\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:372d2034-9a01-4d9a-adb2-1e33628653e8",
+              "display": "Dr. \"Dr. Sarah Patel\""
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-07-13T04:30:00Z",
+          "end": "2023-07-13T07:03:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Referral from Dr. Dr. Sarah Patel for Fracture of forearm"
+          }
+        ],
+        "incomingReferral": [
+          {
+            "referrer": {
+              "reference": "urn:uuid:e95fbaaa-62b6-4d88-b8e9-9a70bf9c4084"
+            },
+            "date": "2023-04-19"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1def8635-2cf8-44f2-bf22-cb1685f0597f",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "1def8635-2cf8-44f2-bf22-cb1685f0597f",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054007",
+              "display": "Fracture of forearm"
+            }
+          ],
+          "text": "Fracture of forearm"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:26519c44-715e-4fef-98b1-d5142a5634aa"
+        },
+        "onsetDateTime": "2023-07-13T04:30:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e7e95317-9f99-4864-9e9f-5fa89e0bbbaf",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "e7e95317-9f99-4864-9e9f-5fa89e0bbbaf",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:26519c44-715e-4fef-98b1-d5142a5634aa"
+        },
+        "performedDateTime": "2023-07-13T04:30:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2971385b-b99d-4b52-a5bd-cdc97851a041",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "2971385b-b99d-4b52-a5bd-cdc97851a041",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:26519c44-715e-4fef-98b1-d5142a5634aa"
+        },
+        "effectiveDateTime": "2023-07-13T04:30:00Z",
+        "valueQuantity": {
+          "value": 105.02506419449854,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9e93d4ba-9b94-41f0-b878-105b3b28390f",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "9e93d4ba-9b94-41f0-b878-105b3b28390f",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed",
+          "display": "Mr. Patel\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:75995064-323c-4d10-abe2-4f71078d9fb7",
+              "display": "Dr. Dr. Olivia Richardson"
+            }
+          },
+          {
+            "individual": {
+              "reference": "urn:uuid:372d2034-9a01-4d9a-adb2-1e33628653e8",
+              "display": "Dr. \"Dr. Sarah Patel\""
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-08-26T07:03:00Z",
+          "end": "2023-08-26T07:44:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Management of Fracture of forearm"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a36330f1-e902-4ff3-aec5-6ec5fa8e6685",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "a36330f1-e902-4ff3-aec5-6ec5fa8e6685",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "230690007",
+              "display": "Fracture of forearm"
+            }
+          ],
+          "text": "Fracture of forearm"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9e93d4ba-9b94-41f0-b878-105b3b28390f"
+        },
+        "onsetDateTime": "2023-08-26T07:03:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:19bf3138-0b2d-426e-9f90-d1cc15712702",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "19bf3138-0b2d-426e-9f90-d1cc15712702",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9e93d4ba-9b94-41f0-b878-105b3b28390f"
+        },
+        "performedDateTime": "2023-08-26T07:03:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8b1611ee-3042-4dee-8fd6-e11c54579182",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "8b1611ee-3042-4dee-8fd6-e11c54579182",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9e93d4ba-9b94-41f0-b878-105b3b28390f"
+        },
+        "effectiveDateTime": "2023-08-26T07:03:00Z",
+        "valueQuantity": {
+          "value": 116.34216224620704,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aff29087-f04d-454b-a109-b379e806e8b8",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "aff29087-f04d-454b-a109-b379e806e8b8",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed",
+          "display": "Mr. Patel\" \"Emily"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:75995064-323c-4d10-abe2-4f71078d9fb7",
+              "display": "Dr. Dr. Olivia Richardson"
+            }
+          },
+          {
+            "individual": {
+              "reference": "urn:uuid:e95fbaaa-62b6-4d88-b8e9-9a70bf9c4084",
+              "display": "Dr. Dr. Sarah Patel"
+            }
+          }
+        ],
+        "period": {
+          "start": "2023-10-24T07:44:00Z",
+          "end": "2023-10-24T10:38:00Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Management of Fracture of forearm (disorder)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:42e8b574-b80b-4563-ae73-a1b10eb57c79",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "42e8b574-b80b-4563-ae73-a1b10eb57c79",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054008",
+              "display": "Fracture of forearm (disorder)"
+            }
+          ],
+          "text": "Fracture of forearm (disorder)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:aff29087-f04d-454b-a109-b379e806e8b8"
+        },
+        "onsetDateTime": "2023-10-24T07:44:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c1191ea1-ebde-45a7-8b32-879d8c4b8b75",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "c1191ea1-ebde-45a7-8b32-879d8c4b8b75",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "80146002",
+              "display": "Appendectomy (procedure)"
+            }
+          ],
+          "text": "Appendectomy (procedure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:aff29087-f04d-454b-a109-b379e806e8b8"
+        },
+        "performedDateTime": "2023-10-24T07:44:00Z"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:43598d2a-f822-42d0-9c91-131c3de953d5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "43598d2a-f822-42d0-9c91-131c3de953d5",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:ecb7d1ab-b49d-4e0e-80d4-e191d5c453ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:aff29087-f04d-454b-a109-b379e806e8b8"
+        },
+        "effectiveDateTime": "2023-10-24T07:44:00Z",
+        "valueQuantity": {
+          "value": 100.04238448178651,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    }
+  ]
+}

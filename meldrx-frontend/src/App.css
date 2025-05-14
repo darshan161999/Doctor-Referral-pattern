@@ -1,0 +1,60 @@
+/* Custom overrides or additions for Material-UI components */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7f9;
+  margin: 0;
+  padding: 0;
+}
+
+.patient-list-container,
+.timeline-container {
+  background-color: #fff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.patient-list-title,
+.timeline-title {
+  color: #007bff !important;
+}
+
+.patient-header {
+  background-color: #f8f9fa !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.patient-graphic {
+  border-radius: 4px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.event-significance.major {
+  color: #28a745 !important;
+}
+
+.event-significance.routine {
+  color: #6c757d !important;
+}
+
+/* Ensure custom classes or overrides for specific behaviors */
+.loading,
+.error {
+  color: #007bff !important;
+  font-weight: bold !important;
+}
+
+.error {
+  color: #dc3545 !important;
+}
+
+.no-data {
+  color: #666 !important;
+  font-style: italic !important;
+}
+
+/* Additional styles for consistency with MUI */
+.activity-item.encounter { border-left-color: #28a745 !important; } /* Green for Encounters */
+.activity-item.condition { border-left-color: #dc3545 !important; } /* Red for Conditions */
+.activity-item.procedure { border-left-color: #ffc107 !important; } /* Yellow for Procedures */
+.activity-item.observation { border-left-color: #17a2b8 !important; } /* Cyan for Observations */
