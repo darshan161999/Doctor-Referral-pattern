@@ -27,13 +27,13 @@ logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %
 logger = logging.getLogger(__name__)
 
 # Environment Variable Environment Variables
-CLIENT_ID = "cef19828c5cf4f05af80427a40cffb1f"
-CLIENT_SECRET = "xQonB150EpSdxvCfP7PI10jIrGDmh0"
+CLIENT_ID = "YOUR_CLIENT_ID_HERE"
+CLIENT_SECRET = "YOUR_CLIENT_SECRET_HERE"
 REDIRECT_URI = "http://localhost:3000/callback"
 AUTH_URL = "https://app.meldrx.com/connect/authorize"
 TOKEN_URL = "https://app.meldrx.com/connect/token"
-FHIR_API = "https://app.meldrx.com/api/fhir/c2dfac70-0b0b-43d9-9c71-e562e4e4fe95"
-OPENAI_API_KEY = "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"
+FHIR_API = "YOUR_FHIR_API_ENDPOINT_HERE"
+OPENAI_API_KEY = "YOUR_OPENAI_API_KEY_HERE"
 
 app = FastAPI()
 app.add_middleware(
@@ -545,7 +545,7 @@ def build_practitioner_care_network(access_token: str) -> Dict[str, Any]:
             if referral_source and referral_source in practitioner_lookup and p1_id in practitioner_lookup:
                 referral_edge = (referral_source, p1_id)
                 collaboration_weights[referral_edge] += 2  # Higher weight for referrals
-                G.add_edge(referral_source, p1_id, weight=collaboration_weights[refall_edge], type='referral')
+                G.add_edge(referral_source, p1_id, weight=collaboration_weights[referral_edge], type='referral')
 
     # Calculate advanced metrics
     try:
